@@ -1,5 +1,4 @@
 <?php 
-    // coded by farriq muwaffaq
     namespace App\Core;
     class App {
         protected $controller = 'Home'; 

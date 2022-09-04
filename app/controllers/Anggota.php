@@ -16,7 +16,6 @@ class Anggota extends Controller
         $data['active'] = 'anggota';
         $data['info'] = $this->model('AnggotaModel')->get_info();
         $data['riwayat'] = $this->model('AnggotaModel')->riwayat();
-        // $data['denda'] = $this->model('AnggotaModel')->denda();
         $this->view('anggota/index', $data, 'default');
     }
 }

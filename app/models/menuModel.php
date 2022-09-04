@@ -6,14 +6,14 @@ use App\Core\Flash;
 
 class BukuModel extends Database
 {
-    public function getBuku()
+    public function getMenu()
     {
         return $this->connect->query('SELECT * FROM menu');
     }
     public function simpanMenu($post)
     {
-        $nama = htmlspecialchars($post['nama']);
-        $harga = htmlspecialchars($post['harga']);
+        $nama = htmlspecialchars($post['nama_menu']);
+        $harga = htmlspecialchars($post['harga_makanan']);
         $foto = $_FILES['foto']['name'];
         $tmp = $_FILES['foto']['tmp_name'];
         $x = explode('.', $foto);
@@ -24,7 +24,7 @@ class BukuModel extends Database
                 Flash::set_flash('Invalid ekstensi , hanya jpg,jpeg,png', 'danger');
                 Controller::redirect(BASE_URL . 'buku/tambah');
             } else {
-                $insert = $this->connect->query("INSERT INTO menu (nama,harga,foto,deskripsi) VALUES ('$nama','$harga','$foto','$deskripsi')");
+                $insert = $this->connect->query("INSERT INTO `menu` (`nama_makanan`, `harga_makanan`, `foto_makanan`, `deskripsi`) VALUES ('$nama', '$harga', '$foto', '$deskripsi');");
                 if ($insert) {
                     if (!is_dir('assets/cover')) {
                         mkdir('assets/cover');
@@ -43,8 +43,8 @@ class BukuModel extends Database
     }
     public function hapusMenu($id)
     {
-        $all = $this->connect->query("DELETE FROM menu WHERE id='$id'");
-        if ($all) {
+        $delete = $this->connect->query("DELETE FROM menu WHERE id='$id'");
+        if ($delete) {
             Flash::set_flash('Berhasil Menghapus buku', 'success');
             Controller::redirect(BASE_URL . 'buku');
         }
@@ -55,8 +55,8 @@ class BukuModel extends Database
     }
     public function update($post, $id)
     {
-        $nama = htmlspecialchars($post['nama']);
-        $harga = htmlspecialchars($post['harga']);
+        $nama = htmlspecialchars($post['nama_makanan']);
+        $harga = htmlspecialchars($post['harga_makanan']);
         $foto = $_FILES['foto']['name'];
         $tmp = $_FILES['foto']['tmp_name'];
         $x = explode('.', $foto);
@@ -67,7 +67,7 @@ class BukuModel extends Database
                 Flash::set_flash('Invalid ekstensi , hanya jpg,jpeg,png', 'danger');
                 Controller::redirect(BASE_URL . 'buku/edit/' . $id);
             } else {
-                $update = $this->connect->query("UPDATE menu SET nama='$nama',harga='$harga',foto='$foto',deskripsi='$deskripsi' WHERE id='$id'");
+                $update = $this->connect->query("UPDATE menu SET nama_makanan='$nama',harga_makanan='$harga',foto='$foto',deskripsi='$deskripsi' WHERE id='$id'");
                 if ($update) {
                     if (!is_dir('assets/cover')) {
                         mkdir('assets/cover');

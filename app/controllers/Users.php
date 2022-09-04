@@ -14,14 +14,14 @@ class users extends Controller
     {
         $data['title'] = 'Data Anggota';
         $data['active'] = 'users';
-        $data['users'] = $this->model('UsersModel')->get_users();
+        $data['anggota'] = $this->model('usersModel')->get_users();
         $this->view('users/index', $data, 'default');
     }
-    public function addUsers()
+    public function tambah()
     {
         if ($_SERVER['REQUEST_METHOD'] === "GET") {
-            $data['title'] = 'Tambah Anggota';
             $data['active'] = 'users';
+            $data['title'] = 'Tambah Anggota';
             $this->view('users/tambah', $data, 'default');
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {

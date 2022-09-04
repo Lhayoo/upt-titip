@@ -8,12 +8,13 @@ class Menu extends Controller
     public function __construct()
     {
         Middleware::sudah_login();
-        Middleware::isAnggota();
+        Middleware::isAdmin();
     }
     public function index()
     {
-        $menu = $this->model('MenuModel')->getMenu();
+        $menu = $this->model('menuModel')->getMenu();
         $data['menu'] = $menu;
+        $data['active'] = 'menu';
         $data['title'] = 'Data Menu';
         $this->view('menu/index', $data, 'default');
     }
@@ -32,7 +33,7 @@ class Menu extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $id = htmlspecialchars($_POST['id_menu']);
-            return $this->model('MenuModel')->hapusMenu($id);
+            return $this->model('menuModel')->hapusMenu($id);
         }
     }
     public function detail($id)
@@ -50,10 +51,10 @@ class Menu extends Controller
             $data['title'] = 'Ubah Menu';
             $data['active'] = 'menu';
             $data['menu'] = $this->model('MenuModel')->getMenuById($id);
-            $this->view('menu/ubah', $data, 'default');
+            $this->view('menu/edit', $data, 'default');
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-            return $this->model('MenuModel')->update($_POST, $id);
+            return $this->model('menuModel')->update($_POST, $id);
         }
     }
 }

@@ -1,5 +1,5 @@
 <?php
-// coded by farriq muwaffaq
+
 namespace App\Core;
 
 class Middleware

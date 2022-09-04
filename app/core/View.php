@@ -1,5 +1,4 @@
 <?php 
-    // coded by farriq muwaffaq
     namespace App\Core;
 
     class View{
@@ -12,5 +11,3 @@
             require_once 'app/views/template/'.$template.'.php';
         }
     }
-
-?>

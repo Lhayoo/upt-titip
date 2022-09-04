@@ -7,7 +7,7 @@ class login extends Controller
 {
     public function __construct()
     {
-        Middleware::sudah_login();
+        Middleware::belum_login();
     }
     public function index()
     {

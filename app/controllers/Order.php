@@ -14,11 +14,11 @@ class Order extends Controller
     {
         $data['title'] = 'Order';
         $data['active'] = 'order';
-        $data['order'] = $this->model('orderModel')->get_infoOrder();
-        // $data['riwayat'] = $this->model('AnggotaModel')->riwayat();
-        // $this->view('anggota/index', $data, 'default');
+        $data['order'] = $this->model('orderModel')->get_orderinfo();
+        $this->view('order/index', $data, 'default');
+        $data['riwayat'] = $this->model('AnggotaModel')->riwayat();
     }
-    public function addOrder()
+    public function tambah()
     {
         if ($_SERVER['REQUEST_METHOD'] === "GET") {
             $data['title'] = 'Tambah Order';
@@ -26,7 +26,7 @@ class Order extends Controller
             $this->view('order/tambah', $data, 'default');
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-            return $this->model('orderModel')->simpanOrder($_POST);
+            return $this->model('orderModel')->tambah($_POST);
         }
     }
 }

@@ -1,5 +1,4 @@
 <?php
-// coded by farriq muwaffaq
 // database
 define('HOST', 'localhost');
 define('USER', 'root');
