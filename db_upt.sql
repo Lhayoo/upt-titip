@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2022 at 10:47 AM
+-- Generation Time: Sep 04, 2022 at 05:48 PM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- PHP Version: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,8 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id`, `nama_makanan`, `harga_makanan`, `foto_makanan`, `deskripsi`) VALUES
-(1, 'Paket Geprek', 10000, 'asdasd', '');
+(1, 'Paket Geprek', 10000, 'asdasd', ''),
+(2, 'asd', 21312, 'asd', 'sdasd');
 
 -- --------------------------------------------------------
 
@@ -51,10 +52,20 @@ INSERT INTO `menu` (`id`, `nama_makanan`, `harga_makanan`, `foto_makanan`, `desk
 CREATE TABLE `transaksi` (
   `kode_order` varchar(100) NOT NULL,
   `menu_id` int(11) NOT NULL,
+  `harga_makanan` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `subtotal` int(11) NOT NULL,
   `users_id` int(11) NOT NULL,
   `tanggal_order` date NOT NULL,
-  `status` varchar(100) NOT NULL
+  `status` enum('aktif','done') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`kode_order`, `menu_id`, `harga_makanan`, `jumlah`, `subtotal`, `users_id`, `tanggal_order`, `status`) VALUES
+('123', 1, 1111, 11, 11, 3, '2022-09-04', 'done');
 
 -- --------------------------------------------------------
 
@@ -67,8 +78,8 @@ CREATE TABLE `users` (
   `nama` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `role` varchar(100) NOT NULL,
-  `last_login` datetime NOT NULL
+  `role` enum('admin','anggota') NOT NULL,
+  `last_login` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -76,7 +87,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nama`, `username`, `password`, `role`, `last_login`) VALUES
-(1, 'alam', 'admin', 'admin', 'admin', '2022-09-03 10:45:44');
+(4, 'admin', 'admin', 'admin', 'admin', '2022-09-04'),
+(5, 'alam', 'alam', 'alam', 'anggota', '2022-09-04');
 
 --
 -- Indexes for dumped tables
@@ -111,13 +123,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
