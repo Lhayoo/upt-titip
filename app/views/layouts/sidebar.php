@@ -6,7 +6,7 @@
             aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="<?= BASE_URL ?>">
             <h4 class="text-center text-white">
-                UPT <span>Titip</span>
+                UPT<span class="m-2">Titip</span>
             </h4>
         </a>
     </div>
@@ -47,6 +47,15 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link text-white <?php if ($data['active'] == 'orderInfo') : ?> active bg-gradient-primary <?php endif ?> "
+                    href="<?= BASE_URL ?>orderInfo/index">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">receipt_long</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Order Info</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-white <?php if ($data['active'] == 'menu') : ?> active bg-gradient-primary <?php endif ?>"
                     href="<?= BASE_URL ?>menu">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -61,7 +70,7 @@
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">receipt_long</i>
                     </div>
-                    <span class="nav-link-text ms-1">prosesOrder</span>
+                    <span class="nav-link-text ms-1">Proses Order</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -74,7 +83,7 @@
                 </a>
             </li>
             <?php endif ?>
-            <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+            <div class="sidenav-footer  w-100 bottom-0 fixed-bootom">
                 <div class="mx-3">
                     <form action="<?= BASE_URL ?>logout" onsubmit="return confirm('Yakin ingin Logout ?')"
                         method="POST">

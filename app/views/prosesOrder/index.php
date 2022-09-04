@@ -10,11 +10,11 @@
                 use App\Core\Flash;
 
                 Flash::get_flash() ?>
-                <form method="POST" action="<?= BASE_URL ?>pengembalian/kembali"
+                <form method="POST" action="<?= BASE_URL ?>prosesOrder/orderComplete"
                     onsubmit="return confirm('Yakin ingin melakukan aksi ini ?')">
                     <div class="form-group">
                         <input type="text" name="kode_order" class="form-control border ps-2"
-                            placeholder="masukan kode pinjam...">
+                            placeholder="Masukan Kode Order...">
                     </div>
                     <div class="form-group mt-2">
                         <button class="btn btn-primary">

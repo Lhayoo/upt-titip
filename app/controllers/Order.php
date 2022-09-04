@@ -8,7 +8,7 @@ class Order extends Controller
     public function __construct()
     {
         Middleware::sudah_login();
-        Middleware::isAnggota();
+        Middleware::isAdmin();
     }
     public function index()
     {
