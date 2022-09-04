@@ -8,12 +8,13 @@ class Home extends Controller
     public function __construct()
     {
         Middleware::sudah_login();
-        Middleware::isAnggota();
+        Middleware::isAdmin();
     }
     public function index()
     {
-        $data['title'] = 'home';
         $data['active'] = 'Dashboard';
+        $data['title'] = 'home';
+        $data['info'] = $this->model('homeModel')->get_all();
         $this->view('home/index', $data, 'default');
     }
     public function grafik()

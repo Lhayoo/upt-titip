@@ -6,7 +6,7 @@ use App\Core\Flash;
 
 class prosesOrderModel extends Database
 {
-    public function aktif($post)
+    public function done($post)
     {
         if (empty($post['kode_order'])) {
             Flash::set_flash('invalid input', 'danger');

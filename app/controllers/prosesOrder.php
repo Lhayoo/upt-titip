@@ -19,7 +19,7 @@ class prosesOrder extends Controller
     public function orderComplete()
     {
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-            return $this->model('prosesOrderModel')->orderComplete($_POST);
+            return $this->model('prosesOrderModel')->done($_POST);
         }
     }
 }
