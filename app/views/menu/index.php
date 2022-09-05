@@ -5,7 +5,7 @@
                 <div
                     class="bg-gradient-primary d-flex align-items-center justify-content-between px-2 shadow-primary border-radius-lg pt-4 pb-3">
                     <h6 class="text-white text-capitalize ps-3">Table Menu</h6>
-                    <a href="<?= BASE_URL . 'buku/tambah' ?>" class="btn btn-info btn-sm">Tambahkan Menu</a>
+                    <a href="<?= BASE_URL . 'menu/tambah' ?>" class="btn btn-info btn-sm">Tambahkan Menu</a>
                 </div>
                 <div class="mt-2">
                     <?php
@@ -40,14 +40,18 @@
                                     <?= $menu['harga_makanan'] ?>
                                 </td>
                                 <td class="align-middle text-center">
-                                    <img src="<?= BASE_URL . 'assets/img/' . $menu['foto_makanan'] ?>" alt=""
+                                    <img src="<?= BASE_URL . 'assets/foto_makanan/' . $menu['foto_makanan'] ?>" alt=""
                                         class="avatar avatar-sm rounded-circle">
                                 </td>
                                 <td class="align-middle text-center pt-3">
                                     <a href="<?= BASE_URL . 'menu/edit/' . $menu['id'] ?>"
                                         class="btn btn-sm btn-warning">Edit</a>
-                                    <a href="<?= BASE_URL . 'menu/hapus/' . $menu['id'] ?>"
-                                        class="btn btn-sm btn-danger">Hapus</a>
+                                    <form action="<?= BASE_URL ?>menu/hapus" class="d-inline"
+                                        onsubmit="return confirm('Yakin ingin menghapus ?')" method="POST">
+                                        <input type="hidden" name="id" value="<?= $menu['id'] ?>">
+                                        <button class="btn btn-sm btn-danger text-white" type="submit">
+                                            <span class="nav-link-text">Hapus</span>
+                                        </button>
                                 </td>
                                 <?php endwhile; ?>
                         </tbody>

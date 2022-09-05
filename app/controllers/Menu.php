@@ -31,7 +31,7 @@ class Menu extends Controller
     public function hapus()
     {
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-            $id = htmlspecialchars($_POST['id_menu']);
+            $id = htmlspecialchars($_POST['id']);
             return $this->model('menuModel')->hapusMenu($id);
         }
     }

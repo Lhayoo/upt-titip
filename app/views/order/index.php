@@ -41,7 +41,7 @@
                                     <?= $order['subtotal'] ?>
                                 </td>
                                 <td class="align-middle text-center">
-                                    <?php if ($order['status'] == 'aktif') : ?>)
+                                    <?php if ($order['status'] == 'aktif') : ?>
                                     <span class="badge badge-sm bg-gradient-warning"><?= $order['status'] ?></span>
                                     <?php elseif ($order['status'] == 'done') : ?>
                                     <span class="badge badge-sm bg-gradient-success"><?= $order['status'] ?></span>

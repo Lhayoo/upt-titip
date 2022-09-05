@@ -16,7 +16,7 @@ class AnggotaModel extends Database
     public function riwayat()
     {
         $user_id = $_SESSION['user']['id'];
-        $riwayat = $this->connect->query("SELECT * from transaksi where `users_id`='$user_id' order by tanggal_order desc");
+        $riwayat = $this->connect->query("SELECT * from transaksi where `users_id`='$user_id' AND `status`='done' order by tanggal_order desc");
         return $riwayat;
     }
 }

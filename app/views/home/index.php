@@ -79,3 +79,59 @@
              </div>
          </div>
      </div>
+     <div class="row mt-3">
+         <div class="col-lg-12 mx-auto">
+             <div class="card">
+                 <div class="card-header bg-primary">
+                     <h4 class="text-white">Table Riwayat Order</h4>
+                 </div>
+                 <div class="card-body">
+                     <table class="table align-items-center mb-0">
+                         <thead>
+                             <tr>
+                                 <th class="align-middle text-center">No</th>
+                                 <th class="align-middle text-center">Kode Order</th>
+                                 <th class="align-middle text-center">Tanggal Order</th>
+                                 <th class="align-middle text-center">Menu</th>
+                                 <th class="align-middle text-center">Jumlah</th>
+                                 <th class="align-middle text-center">Subtotal</th>
+                                 <th class="align-middle text-center">Status</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <?php foreach ($data['riwayat'] as $order) : ?>
+                             <?php $no = 1 ?>
+                             <tr>
+                                 <td class="align-middle text-center">
+                                     <?= $no++ ?>
+                                 </td>
+                                 <td class="align-middle text-center">
+                                     <?= $order['kode_order'] ?>
+                                 </td>
+                                 <td class="align-middle text-center">
+                                     <?= $order['tanggal_order'] ?>
+                                 </td>
+                                 <td class="align-middle text-center">
+                                     <?= $order['menu_id'] ?>
+                                 </td>
+                                 <td class="align-middle text-center">
+                                     <?= $order['jumlah'] ?>
+                                 </td>
+                                 <td class="align-middle text-center">
+                                     <?= $order['subtotal'] ?>
+                                 </td>
+                                 <td class="align-middle text-center">
+                                     <?php if ($order['status'] == 'aktif') : ?>)
+                                     <span class="badge badge-sm bg-gradient-warning"><?= $order['status'] ?></span>
+                                     <?php elseif ($order['status'] == 'done') : ?>
+                                     <span class="badge badge-sm bg-gradient-success"><?= $order['status'] ?></span>
+                                     <?php endif ?>
+                                 </td>
+                             </tr>
+                             <?php endforeach; ?>
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+     </div>

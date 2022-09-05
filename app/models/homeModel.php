@@ -23,4 +23,10 @@ class homeModel extends Database
         }
         return $arr;
     }
+    public function get_riwayat()
+    {
+        $user_id = $_SESSION['user']['id'];
+        $riwayat = $this->connect->query("SELECT * from transaksi where `users_id`='$user_id' order by tanggal_order desc");
+        return $riwayat;
+    }
 }

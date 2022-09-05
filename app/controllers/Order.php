@@ -23,6 +23,7 @@ class Order extends Controller
         if ($_SERVER['REQUEST_METHOD'] === "GET") {
             $data['title'] = 'Tambah Order';
             $data['active'] = 'order';
+            $data['menu'] = $this->model('orderModel')->get_menu();
             $this->view('order/tambah', $data, 'default');
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {

@@ -13,11 +13,14 @@
                 Flash::get_flash() ?>
                 <form method="POST">
                     <div class="form-group">
-                        <label for="menu_id">
-                            Pilih menu
-                        </label>
-                        <input type="text" class="form-control border ps-2" placeholder="Masukan menu..." name="menu_id"
-                            id="menu_id">
+                        <label>Pilih Menu</label>
+                        <select class="form-control border" name="menu_id">
+                            <option value="">Pilih Menu</option>
+                            <?php while ($menu = $data['menu']->fetch_assoc()) : ?>
+                            <option value="<?= $menu['id'] ?>"><?= $menu['nama_makanan'] ?></option>
+                            var_dump($menu);
+                            <?php endwhile ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="harga">

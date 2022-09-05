@@ -72,8 +72,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($data['riwayat'] as $order) : ?>
-                            <?php $no = 1 ?>
+                            <?php $no = 1; ?>
+                            <?php while ($order = $data['riwayat']->fetch_assoc()) : ?>
                             <tr>
                                 <td class="align-middle text-center">
                                     <?= $no++ ?>
@@ -94,14 +94,14 @@
                                     <?= $order['subtotal'] ?>
                                 </td>
                                 <td class="align-middle text-center">
-                                    <?php if ($order['status'] == 'aktif') : ?>)
+                                    <?php if ($order['status'] == 'aktif') : ?>
                                     <span class="badge badge-sm bg-gradient-warning"><?= $order['status'] ?></span>
                                     <?php elseif ($order['status'] == 'done') : ?>
                                     <span class="badge badge-sm bg-gradient-success"><?= $order['status'] ?></span>
                                     <?php endif ?>
                                 </td>
                             </tr>
-                            <?php endforeach; ?>
+                            <?php endwhile; ?>
                         </tbody>
                     </table>
                 </div>
