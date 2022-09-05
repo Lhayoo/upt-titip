@@ -53,6 +53,10 @@ class menuModel extends Database
     {
         return $this->connect->query("SELECT * FROM menu WHERE id='$id'");
     }
+    public function detail()
+    {
+        return $this->connect->query("SELECT * FROM menu");
+    }
     public function update($post, $id)
     {
         $nama = htmlspecialchars($post['nama_makanan']);

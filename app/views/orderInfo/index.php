@@ -39,7 +39,7 @@
                                     <?= $order['tanggal_order'] ?>
                                 </td>
                                 <td class="align-middle text-center">
-                                    <?= $order['menu_id'] ?>
+                                    <?= $order['nama_makanan'] ?>
                                 </td>
                                 <td class="align-middle text-center">
                                     <?= $order['jumlah'] ?>

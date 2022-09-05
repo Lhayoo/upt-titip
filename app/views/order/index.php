@@ -32,12 +32,12 @@
                                     <?= $order['tanggal_order'] ?>
                                 </td>
                                 <td class="align-middle text-center">
-                                    <?= $order['menu_id'] ?>
+                                    <?= $order['nama_makanan'] ?>
                                 </td>
                                 <td class="align-middle text-center">
                                     <?= $order['jumlah'] ?>
                                 </td>
-                                <td class="align-middle text-center">
+                                <td class="align-middle text-center"> Rp.
                                     <?= $order['subtotal'] ?>
                                 </td>
                                 <td class="align-middle text-center">

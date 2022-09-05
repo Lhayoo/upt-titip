@@ -35,6 +35,15 @@
                     <span class="nav-link-text ms-1">Order</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-white <?php if ($data['active'] == 'menuOrder') : ?> active bg-gradient-primary <?php endif ?>"
+                    href="<?= BASE_URL ?>menuOrder">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">table_view</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Menu</span>
+                </a>
+            </li>
             <?php endif ?>
             <?php if ($_SESSION['user']['role'] === 'admin') : ?>
             <li class="nav-item">

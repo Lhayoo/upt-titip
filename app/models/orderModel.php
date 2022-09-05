@@ -9,7 +9,7 @@ class orderModel extends Database
     public function get_OrderInfo()
     {
         $user_id = $_SESSION['user']['id'];
-        $query = $this->connect->query("SELECT * from transaksi where `users_id`='$user_id' AND `status` = 'aktif' order by tanggal_order desc");
+        $query = $this->connect->query("SELECT `transaksi`.`kode_order`,`transaksi`.`tanggal_order`,`menu`.`nama_makanan`,`transaksi`.`jumlah`,`transaksi`.`subtotal`,`transaksi`.`status` from transaksi,menu WHERE `transaksi`.`menu_id`=`menu`.`id` AND `users_id`='$user_id' AND `status`='aktif ' order by tanggal_order desc");
         return $query;
     }
     public function tambah($post)
