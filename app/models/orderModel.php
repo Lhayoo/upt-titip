@@ -15,21 +15,21 @@ class orderModel extends Database
     public function tambah($post)
     {
         $user_id = $_SESSION['user']['id'];
-        $kode_order = $user_id . '_' . uniqid();
+        $kode_order = 'ORD' . '-' . uniqid();
         $menu_id = htmlspecialchars($post['menu_id']);
-        $harga = htmlspecialchars($post['harga_makanan']);
+        $harga = htmlspecialchars($post['harga']);
         $jumlah = htmlspecialchars($post['jumlah']);
         $subtotal = htmlspecialchars($post['subtotal']);
         $tanggal_order = date('Y-m-d');
         if (empty($user_id) && empty($kode_order) && empty($menu_id) && empty($harga) && empty($jumlah) && empty($subtotal) && empty($tanggal_order)) {
             Flash::set_flash('Invalid input', 'danger');
         } else {
-            $insert = $this->connect->query("INSERT INTO `transaksi` (`kode_order`, `menu_id`, `harga_makanan`, `jumlah`, `subtotal`, `users_id`, `tanggal_order`, `status`) VALUES ('$kode_order', '$menu_id', '$harga', '$jumlah', '$subtotal', '$user_id', '$tanggal_order', 'aktif'");
+            $insert = $this->connect->query("INSERT INTO `transaksi` (`kode_order`, `menu_id`, `harga_makanan`, `jumlah`, `subtotal`, `users_id`, `tanggal_order`, `status`) VALUES ('$kode_order', '$menu_id', '$harga', '$jumlah', '$jumlah', '$subtotal', '$tanggal_order', 'aktif''");
         }
         if ($insert) {
-            Flash::set_flash('Orderan Berhasil Di buat', 'success');
+            Flash::set_flash('Order berhasil', 'success');
         } else {
-            Flash::set_flash('Orderan Gagal Dibuat', 'danger');
+            Flash::set_flash('Orderan gagal', 'danger');
         }
         Controller::redirect(BASE_URL . 'order/tambah');
     }

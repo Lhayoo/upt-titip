@@ -23,7 +23,7 @@
                         <label for="harga">
                             Harga
                         </label>
-                        <input type="text" class="form-control border ps-2" placeholder="harga..." name="harga_makanan"
+                        <input type="text" class="form-control border ps-2" placeholder="harga..." name="harga"
                             id="harga">
                     </div>
                     <div class="form-group">

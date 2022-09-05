@@ -10,16 +10,15 @@
                 <div class="mt-2">
                     <?php
 
-          use App\Core\Flash;
+                    use App\Core\Flash;
 
-          Flash::get_flash() ?>
+                    Flash::get_flash() ?>
                 </div>
             </div>
             <div class="card-body px-0 pb-2 m-4">
                 <div class="table-responsive p-0">
                     <table class="table align-items-center mb-0">
                         <thead>
-                            <th class="align-middle text-center">No</th>
                             <th class="align-middle text-center">Tanggal Order</th>
                             <th class="align-middle text-center">Menu</th>
                             <th class="align-middle text-center">Jumlah</th>
@@ -28,11 +27,7 @@
                         </thead>
                         <tbody>
                             <?php foreach ($data['order'] as $order) : ?>
-                            <?php $no = 1; ?>
                             <tr>
-                                <td class="align-middle text-center">
-                                    <?= $no++ ?>
-                                </td>
                                 <td class="align-middle text-center">
                                     <?= $order['tanggal_order'] ?>
                                 </td>

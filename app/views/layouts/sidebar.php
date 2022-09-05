@@ -28,7 +28,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white <?php if ($data['active'] == 'order') : ?> active bg-gradient-primary <?php endif ?> "
-                    href="<?= BASE_URL ?>order">
+                    href="<?= BASE_URL ?>order/index">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">receipt_long</i>
                     </div>
@@ -48,7 +48,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white <?php if ($data['active'] == 'orderInfo') : ?> active bg-gradient-primary <?php endif ?> "
-                    href="<?= BASE_URL ?>orderInfo/index">
+                    href="<?= BASE_URL ?>orderInfo">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">receipt_long</i>
                     </div>

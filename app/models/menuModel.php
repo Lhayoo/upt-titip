@@ -4,7 +4,7 @@ use App\Core\Controller;
 use App\Core\Database;
 use App\Core\Flash;
 
-class BukuModel extends Database
+class menuModel extends Database
 {
     public function getMenu()
     {

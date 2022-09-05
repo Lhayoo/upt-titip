@@ -12,10 +12,9 @@ class Menu extends Controller
     }
     public function index()
     {
-        $menu = $this->model('menuModel')->getMenu();
-        $data['menu'] = $menu;
-        $data['active'] = 'menu';
         $data['title'] = 'Data Menu';
+        $data['active'] = 'menu';
+        $data['menu'] = $this->model('menuModel')->getMenu();
         $this->view('menu/index', $data, 'default');
     }
     public function tambah()

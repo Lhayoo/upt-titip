@@ -14,7 +14,7 @@ class users extends Controller
     {
         $data['title'] = 'Data Anggota';
         $data['active'] = 'users';
-        $data['anggota'] = $this->model('usersModel')->get_users();
+        $data['users'] = $this->model('usersModel')->get_user();
         $this->view('users/index', $data, 'default');
     }
     public function tambah()
@@ -25,7 +25,7 @@ class users extends Controller
             $this->view('users/tambah', $data, 'default');
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-            return $this->model('usersModel')->simpanUsers($_POST);
+            return $this->model('usersModel')->tambah($_POST);
         }
     }
     public function hapus()
@@ -40,8 +40,8 @@ class users extends Controller
         if ($_SERVER['REQUEST_METHOD'] === "GET") {
             $data['title'] = 'Ubah Anggota';
             $data['active'] = 'users';
-            $data['users'] = $this->model('usersModel')->get_usersById($id);
-            $this->view('users/Edit', $data, 'default');
+            $data['id'] = $this->model('usersModel')->get_anggotaById($id);
+            $this->view('users/edit', $data, 'default');
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             return $this->model('usersModel')->update($_POST, $id);
