@@ -40,7 +40,7 @@ class Menu extends Controller
         if ($_SERVER['REQUEST_METHOD'] === "GET") {
             $data['title'] = 'Detail Menu';
             $data['active'] = 'menu';
-            $data['menu'] = $this->model('MenuModel')->getMenuById($id);
+            $data['id'] = $this->model('menuModel')->getMenuById($id);
             $this->view('menu/detail', $data, 'default');
         }
     }
@@ -49,7 +49,8 @@ class Menu extends Controller
         if ($_SERVER['REQUEST_METHOD'] === "GET") {
             $data['title'] = 'Ubah Menu';
             $data['active'] = 'menu';
-            $data['menu'] = $this->model('MenuModel')->getMenuById($id);
+            $id = htmlspecialchars($id);
+            $data['id'] = $this->model('menuModel')->getMenuById($id);
             $this->view('menu/edit', $data, 'default');
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {

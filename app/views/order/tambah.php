@@ -14,7 +14,7 @@
                 <form method="POST">
                     <div class="form-group">
                         <label>Pilih Menu</label>
-                        <select class="form-control border" name="menu_id">
+                        <select class="form-control border p-2" name="menu_id" id="menu_id" onchange="pilih_menu()">
                             <option value="">Pilih Menu</option>
                             <?php while ($menu = $data['menu']->fetch_assoc()) : ?>
                             <option value="<?= $menu['id'] ?>"><?= $menu['nama_makanan'] ?></option>
@@ -27,7 +27,7 @@
                             Harga
                         </label>
                         <input type="text" class="form-control border ps-2" placeholder="harga..." name="harga"
-                            id="harga">
+                            id="harga" id="harga">
                     </div>
                     <div class="form-group">
                         <label for="jumlah">
@@ -52,3 +52,22 @@
         </div>
     </div>
 </div>
+<!-- <script>
+function pilih_menu() {
+    var menu_id = document.getElementById('menu_id').value;
+    $.ajax({
+        url: '<?php // BASE_URL . '../models/orderModels' 
+                ?>',
+        data: "menu_id=" + menu_id,
+        method: 'POST',
+        dataType: 'json',
+        success: function(data) {
+            document.getElementById('harga').value = data.harga;
+        }
+    });
+}
+$(function() {
+    $(document).ready(function() {
+        $('#id_menu').select2();
+    })
+}); -->

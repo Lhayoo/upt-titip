@@ -39,4 +39,11 @@ class orderModel extends Database
         $query = $this->connect->query("SELECT * from menu");
         return $query;
     }
+    // public function get_menuById()
+    // {
+    //     $id = $_POST['menu_id'];
+    //     $query = $this->connect->query("SELECT * from menu where id='$id'")->row_array;
+    //     echo json_encode($query);
+    //     return $query;
+    // }
 }

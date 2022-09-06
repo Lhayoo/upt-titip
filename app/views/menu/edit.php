@@ -12,25 +12,34 @@ use App\Core\Flash;
             <div class="card-body">
                 <?php Flash::get_flash() ?>
                 <form method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="nama_makanan">Nama Makanan</label>
-                        <input type="text" name="nama_makanan" id="nama_makanan" class="form-control">
+
+                    <div class="form-group pb-3">
+                        <label for="nama">Nama Makanan</label>
+                        <input type="text" class="form-control border ps-2" name="nama"
+                            placeholder="Masuakan Nama Makanan..." id="nama" value="<?= $data['id']['nama_makanan'] ?>">
                     </div>
-                    <div class="form-group">
-                        <label for="harga">Harga</label>
-                        <input type="number" name="harga" id="harga" class="form-control">
+                    <div class="form-group pb-3">
+                        <label for="harga">Harga Makanan</label>
+                        <input type="text" class="form-control border ps-2" name="harga" placeholder="Masukan Harga ..."
+                            id="harga" value="<?= $data['id']['harga_makanan'] ?>">
                     </div>
-                    <div class="form-group">
-                        <label for="foto_makanan">Foto Makanan</label>
-                        <input type="file" name="foto_makanan" id="foto_makanan" class="form-control">
+                    <div class="form-group pb-3">
+                        <label>Foto Maakanan</label>
+                        <input type="file" name="foto" min="0" class="form-control border ps-2">
+                        <img src="<?= BASE_URL ?>assets/foto_makanan/<?= $data['id']['foto_makanan'] ?>" alt="IMG"
+                            class="img-thumbnail">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group pb-3">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" class="form-control"></textarea>
+                        <textarea type="text-area" class="form-control border ps-2" name="deskripsi"
+                            placeholder="Masukan Deskripsi Product"
+                            id="deskripsi"><?= $data['id']['deskripsi'] ?></textarea>
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Tambahkan</button>
+                    <div class="card-footer ">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <a href="<?= BASE_URL . 'menu/index' ?>" class=" btn btn-danger">Batal</a>
                     </div>
+                </form>
             </div>
         </div>
     </div>

@@ -14,9 +14,8 @@
                 </ul>
             </div>
             <div class="card-footer bg-primary">
-                <a href="<?= BASE_URL . 'menuOrder/index' ?>" class=" btn btn-dark text-center">kembali</a>
+                <a href="<?= BASE_URL . 'menuOrder/index' ?>" class=" btn btn-warning text-center">kembali</a>
             </div>
         </div>
     </div>
-
 </div>

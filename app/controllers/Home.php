@@ -15,8 +15,8 @@ class Home extends Controller
         $data['active'] = 'Dashboard';
         $data['title'] = 'home';
         $data['info'] = $this->model('homeModel')->get_all();
+        $data['riwayat'] = $this->model('homeModel')->get_riwayat();
         $this->view('home/index', $data, 'default');
-        $data['riwayat'] = $this->model('AnggotaModel')->riwayat();
     }
     public function grafik()
     {

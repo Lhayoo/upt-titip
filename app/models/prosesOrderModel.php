@@ -19,9 +19,9 @@ class prosesOrderModel extends Database
                 $update = $this->connect->query("UPDATE transaksi set `status`='done' where `kode_order`='$kode'");
             }
             if ($update) {
-                Flash::set_flash('Transaksi berhasil', 'success');
+                Flash::set_flash('Orderan berhasil diproses', 'success');
             } else {
-                Flash::set_flash('SERVER ERROR', 'danger');
+                Flash::set_flash('Orderan gagal diproses', 'danger');
             }
         }
         Controller::redirect(BASE_URL . 'prosesOrder');

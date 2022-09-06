@@ -36,10 +36,10 @@
              <div class="card-header p-3 pt-2">
                  <div
                      class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                     <i class="material-icons opacity-10">person</i>
+                     <i class="material-icons opacity-10">weekend</i>
                  </div>
                  <div class="text-end pt-1">
-                     <p class="text-sm mb-0 text-capitalize">Total aktif</p>
+                     <p class="text-sm mb-0 text-capitalize">Total orderan aktif</p>
                      <h4 class="mb-0">
                          <?= $data['info']['total_aktif'] ?>
                      </h4>
@@ -85,12 +85,13 @@
                  <div class="card-header bg-primary">
                      <h4 class="text-white">Table Riwayat Order</h4>
                  </div>
-                 <div class="card-body">
+                 <div class="card-body table-responsive-xl">
                      <table class="table align-items-center mb-0">
                          <thead>
                              <tr>
                                  <th class="align-middle text-center">No</th>
                                  <th class="align-middle text-center">Kode Order</th>
+                                 <th class="align-middle text-center">Nama Pengorder</th>
                                  <th class="align-middle text-center">Tanggal Order</th>
                                  <th class="align-middle text-center">Menu</th>
                                  <th class="align-middle text-center">Jumlah</th>
@@ -98,10 +99,12 @@
                                  <th class="align-middle text-center">Status</th>
                              </tr>
                          </thead>
-                         <tbody>
-                             <?php foreach ($data['riwayat'] as $order) : ?>
-                             <?php $no = 1 ?>
+                         <tbody class="table table-hover">
                              <tr>
+                                 <?php
+                                    $no = 1;
+                                    while ($order = $data['riwayat']->fetch_assoc()) :
+                                    ?>
                                  <td class="align-middle text-center">
                                      <?= $no++ ?>
                                  </td>
@@ -109,15 +112,18 @@
                                      <?= $order['kode_order'] ?>
                                  </td>
                                  <td class="align-middle text-center">
+                                     <?= $order['nama'] ?>
+                                 </td>
+                                 <td class="align-middle text-center">
                                      <?= $order['tanggal_order'] ?>
                                  </td>
                                  <td class="align-middle text-center">
-                                     <?= $order['menu_id'] ?>
+                                     <?= $order['nama_makanan'] ?>
                                  </td>
                                  <td class="align-middle text-center">
                                      <?= $order['jumlah'] ?>
                                  </td>
-                                 <td class="align-middle text-center">
+                                 <td class="align-middle text-center">Rp.
                                      <?= $order['subtotal'] ?>
                                  </td>
                                  <td class="align-middle text-center">
@@ -128,7 +134,7 @@
                                      <?php endif ?>
                                  </td>
                              </tr>
-                             <?php endforeach; ?>
+                             <?php endwhile; ?>
                          </tbody>
                      </table>
                  </div>

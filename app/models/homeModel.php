@@ -25,8 +25,7 @@ class homeModel extends Database
     }
     public function get_riwayat()
     {
-        $user_id = $_SESSION['user']['id'];
-        $riwayat = $this->connect->query("SELECT * from transaksi where `users_id`='$user_id' order by tanggal_order desc");
+        $riwayat = $this->connect->query("SELECT * from menu,transaksi,users where `transaksi`.`users_id`=`users`.`id` AND `transaksi`.`menu_id`=`menu`.`id` AND `status`='done' order by tanggal_order desc");
         return $riwayat;
     }
 }

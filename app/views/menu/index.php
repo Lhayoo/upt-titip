@@ -10,9 +10,9 @@
                 <div class="mt-2">
                     <?php
 
-          use App\Core\Flash;
+                    use App\Core\Flash;
 
-          Flash::get_flash() ?>
+                    Flash::get_flash() ?>
                 </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -27,9 +27,9 @@
                         </thead>
                         <tbody>
                             <?php
-              $no = 1;
-              while ($menu = $data['menu']->fetch_assoc()) :
-              ?>
+                            $no = 1;
+                            while ($menu = $data['menu']->fetch_assoc()) :
+                            ?>
                             <tr>
                                 <td class="align-middle text-center">
                                     <?= $no++ ?>
@@ -44,6 +44,8 @@
                                         class="avatar avatar-sm rounded-circle">
                                 </td>
                                 <td class="align-middle text-center pt-3">
+                                    <a href="<?= BASE_URL . 'menu/detail/' . $menu['id'] ?>"
+                                        class="btn btn-sm btn-success">Details</a>
                                     <a href="<?= BASE_URL . 'menu/edit/' . $menu['id'] ?>"
                                         class="btn btn-sm btn-warning">Edit</a>
                                     <form action="<?= BASE_URL ?>menu/hapus" class="d-inline"
@@ -57,27 +59,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>

@@ -2,7 +2,7 @@
     <div class="col-lg-8 mx-auto">
         <div class="card">
             <div class="card-header bg-success">
-                <h4 class="text-white">Form Proses Order</h4>
+                <h4 class="text-white">Proses Order</h4>
             </div>
             <div class="card-body">
                 <?php

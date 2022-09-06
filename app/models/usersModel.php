@@ -53,7 +53,7 @@ class usersModel extends Database
         } else {
             $update = $this->connect->query("UPDATE `users` SET `nama` = '$nama',`username` = '$username',`password` = '$password' WHERE `users`.`id` = $id ");
             if ($update) {
-                Flash::set_flash('Berhasil Mengubah', 'success');
+                Flash::set_flash('Berhasil Mengubah anggota', 'success');
             } else {
                 Flash::set_flash('Gagal Mengubah anggota', 'danger');
             }
