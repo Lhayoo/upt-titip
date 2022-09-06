@@ -66,11 +66,11 @@ class menuModel extends Database
         $x = explode('.', $foto);
         $ext = end($x);
         $deskripsi = $post['deskripsi'];
-        if (!empty($nama) && !empty($harga) && !empty($deskripsi) && !empty($foto)) {
+        if (!empty($nama) && !empty($harga) && !empty($deskripsi)) {
             if ($_FILES['foto']['name'] != '') {
                 if (!in_array($ext, ['jpg', 'png', 'jpeg'])) {
                     Flash::set_flash('Invalid ekstensi , hanya jpg,jpeg,png', 'danger');
-                    Controller::redirect(BASE_URL . 'menu/edit');
+                    Controller::redirect(BASE_URL . 'menu');
                 } else {
                     $old_foto = $this->getMenuByID($id)['foto'];
                     if (file_exists('assets/foto_makanan/' . $old_foto)) {
@@ -84,7 +84,7 @@ class menuModel extends Database
                         if (is_dir('assets/foto_makanan')) {
                             move_uploaded_file($tmp, 'assets/foto_makanan/' . $foto);
                         }
-                        Flash::set_flash('Berhasil Mengedit menu', 'success');
+                        Flash::set_flash('Berhasil mengubah menu', 'success');
                         Controller::redirect(BASE_URL . 'menu');
                     }
                 }
@@ -92,11 +92,11 @@ class menuModel extends Database
                 $update = $this->connect->query("UPDATE `menu` SET `nama_makanan` = '$nama', `harga_makanan` = '$harga', `deskripsi` = '$deskripsi' WHERE `menu`.`id` = '$id'");
                 if ($update) {
                     Flash::set_flash('Berhasil Mengedit menu', 'success');
-                    Controller::redirect(BASE_URL . 'menu/edit');
+                    Controller::redirect(BASE_URL . 'menu');
                 }
             }
         } else {
-            Flash::set_flash('Invalid input value', 'danger');
+            Flash::set_flash('Gagal mengubah menu', 'danger');
             Controller::redirect(BASE_URL . 'menu');
         }
     }

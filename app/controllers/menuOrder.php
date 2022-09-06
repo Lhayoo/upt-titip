@@ -12,7 +12,7 @@ class MenuOrder extends Controller
     }
     public function index()
     {
-        $data['title'] = 'Data Menu Order';
+        $data['title'] = 'Menu';
         $data['active'] = 'menuOrder';
         $data['menuOrder'] = $this->model('menuOrderModel')->getMenu();
         $this->view('menuOrder/index', $data, 'default');
